@@ -15,6 +15,7 @@ function App() {
         title: "Dishes",
         description: "Empty dishwasher",
         deadline: "Today",
+        priority: "low",
         done: false
       },
       {
@@ -22,12 +23,14 @@ function App() {
         title: "Laundry",
         description: "Fold clothes and put away",
         deadline: "Tomorrow",
+        priority: "medium",
         done: false
       },
       {
         id: 3,
         title: "Tidy up",
         deadline: "Today",
+        priority: "high",
         done: false
       }
     ]
@@ -137,8 +140,10 @@ function App() {
               title={task.title}
               description={task.description}
               deadline={task.deadline}
+              priority={task.priority}
               done={task.done}
               key={task.id}
+              id={task.id}
               markDone={() => doneHandler(index)}
               deleteTask={() => deleteHandler(index)}
             />

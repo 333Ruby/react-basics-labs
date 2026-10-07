@@ -4,19 +4,24 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
+import Chip from '@mui/material/Chip';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+
+import DoneIcon from '@mui/icons-material/Done';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const Task = (props) => {
   return (
     <Grid
       key={props.id}
-      size={{ xs: 12, md: 4 }}
+      size={{ xs: 12, sm: 6, md: 4}}
     >
       <Card
         sx={{
-          backgroundColor: props.done ? 'lightgrey' : 'lightblue',
-          padding: '20px'
+          backgroundColor: props.done ? 'success.light' : 'primary.light',
+          padding: '20px',
+          borderRadius: '20px'
         }}
       >
         <CardHeader
@@ -56,6 +61,16 @@ const Task = (props) => {
           >
             {props.description}
           </Typography>
+
+          <Chip
+            label={props.priority}
+            color="primary"
+            sx={{
+              display: 'block',
+              width: 'fit-content',
+              margin: '20px auto 0'
+            }}
+            />
         </CardContent>
 
         <CardActions
@@ -70,6 +85,7 @@ const Task = (props) => {
             color="success"
             onClick={props.markDone}
           >
+            <DoneIcon />
             Done
           </Button>
 
@@ -79,6 +95,7 @@ const Task = (props) => {
             color="error"
             onClick={props.deleteTask}
           >
+            <DeleteIcon />
             Delete
           </Button>
         </CardActions>
